@@ -1,0 +1,23 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Pets</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let owner of owners">
+        <td><a routerLink="{{owner.id}}">{{ owner.id }}</a></td>
+        <td>{{ owner.firstName }}</td>
+        <td>{{ owner.lastName }}</td>
+        <span *ngFor="let pet of owner.pets ; let i = index">{{i + 1}}.{{pet.name}} </span>
+      </tr>
+      </tbody>
+    </table>
+    <a routerLink="/addowner" class="btn btn-info">Add Owner</a>
+  </div>
+</div>

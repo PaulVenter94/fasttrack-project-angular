@@ -1,0 +1,25 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Specialities</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let vet of vets">
+        <td>{{ vet.id }}</td>
+        <td>{{ vet.firstName }}</td>
+        <td>{{ vet.lastName }}</td>
+        <td>{{ vet.age }}</td>
+        <td>{{ vet.speciality }}</td>
+      </tr>
+      </tbody>
+    </table>
+    <a routerLink="/addvet" class="btn btn-info">Add Vet</a>
+  </div>
+</div>

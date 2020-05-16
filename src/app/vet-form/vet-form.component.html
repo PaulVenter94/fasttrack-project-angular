@@ -1,0 +1,49 @@
+<div class="car my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #ownerForm="ngForm">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" [(ngModel)]="vet.firstName"
+               class="form-control"
+               id="firstName"
+               name="firstName"
+               placeholder="Enter first name!"
+               required #firstName="ngModel">
+      </div>
+      <div [hidden]="!firstName.pristine" class="alert alert-dark">First name is required!</div>
+      <div class="form-group">
+        <label for="lastName">Last name</label>
+        <input type="text" [(ngModel)]="vet.lastName"
+               class="form-control"
+               id="lastName"
+               name="lastName"
+               placeholder="Enter last name!"
+               required #lastName="ngModel">
+      </div>
+      <div [hidden]="!lastName.pristine" class="alert alert-dark">Last name is required!</div>
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" [(ngModel)]="vet.age"
+               class="form-control"
+               id="age"
+               min="1"
+               max="120"
+               placeholder="Enter age!"
+               required #age="ngModel">
+      </div>
+      <div [hidden]="!age.pristine" class="alert alert-dark">Age is required!</div>
+      <div class="form-group">
+        <label for="lastName">Speciality</label>
+        <input type="text" [(ngModel)]="vet.speciality"
+               class="form-control"
+               id="speciality"
+               name="lastName"
+               placeholder="Enter speciality!"
+        >
+      </div>
+      <button type="submit" [disabled]="!ownerForm.form.valid"
+              class="btn btn-info">Submit
+      </button>
+    </form>
+  </div>
+</div>

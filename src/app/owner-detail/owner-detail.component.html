@@ -1,0 +1,27 @@
+<h2 class="card-title text-center py-3">{{owner.id}}. {{owner.firstName}}
+  {{owner.lastName}}  </h2>
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Pet Name</th>
+        <th scope="col">Pet Type</th>
+        <th scope="col">Age</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let pet of owner.pets">
+        <td>{{ pet.id }}</td>
+        <td>{{ pet.name }}</td>
+        <td>{{<!-- TODO pet type--> }}</td>
+        <td>{{ <!-- TODO pet age--> }}</td>
+      </tr>
+      </tbody>
+    </table>
+    <a routerLink="addpet" class="btn btn-info">Add Pet</a>
+  </div>
+</div>
+
+
