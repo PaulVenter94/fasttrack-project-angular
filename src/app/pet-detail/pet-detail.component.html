@@ -1,0 +1,23 @@
+<h2 class="card-title text-center py-3">{{pet.id}}.{{pet.name}}</h2>
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Visit Date</th>
+        <th scope="col">Description</th>
+        <th scope="col">Intervention</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let visit of pet.visits">
+        <td>{{ visit.id }}</td>
+        <td>{{visit.dateTime | date:'medium'}}</td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+    <a routerLink="addvisit" class="btn btn-info">Add Visit</a>
+  </div>
+</div>

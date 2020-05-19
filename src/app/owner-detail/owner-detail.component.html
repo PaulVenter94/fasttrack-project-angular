@@ -13,7 +13,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let pet of owner.pets">
-        <td>{{ pet.id }}</td>
+        <td><a routerLink="/pets/{{pet.id}}">{{ pet.id }}</a></td>
         <td>{{ pet.name }}</td>
         <td>{{<!-- TODO pet type--> }}</td>
         <td>{{ <!-- TODO pet age--> }}</td>

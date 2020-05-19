@@ -12,6 +12,15 @@ import { VetListComponent } from './vet-list/vet-list.component';
 import { VetFormComponent } from './vet-form/vet-form.component';
 import { OwnerDetailComponent } from './owner-detail/owner-detail.component';
 import { PetFormComponent } from './pet-form/pet-form.component';
+import { PetDetailComponent } from './pet-detail/pet-detail.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/moment';
+import * as moment from 'moment';
+import { VisitFormComponent } from './visit-form/visit-form.component';
+
+export function momentAdapterFactory() {
+  return adapterFactory(moment);
+};
 
 @NgModule({
   declarations: [
@@ -21,13 +30,16 @@ import { PetFormComponent } from './pet-form/pet-form.component';
     VetListComponent,
     VetFormComponent,
     OwnerDetailComponent,
-    PetFormComponent
+    PetFormComponent,
+    PetDetailComponent,
+    VisitFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: momentAdapterFactory })
   ],
   providers: [OwnerService],
   bootstrap: [AppComponent]

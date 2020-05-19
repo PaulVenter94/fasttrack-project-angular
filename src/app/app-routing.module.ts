@@ -7,6 +7,8 @@ import {VetListComponent} from './vet-list/vet-list.component';
 import {VetFormComponent} from './vet-form/vet-form.component';
 import {OwnerDetailComponent} from './owner-detail/owner-detail.component';
 import {PetFormComponent} from './pet-form/pet-form.component';
+import {PetDetailComponent} from './pet-detail/pet-detail.component';
+import {VisitFormComponent} from './visit-form/visit-form.component';
 
 const routes: Routes = [
   {path: 'owners', component: OwnerListComponent},
@@ -15,6 +17,8 @@ const routes: Routes = [
   {path: 'addvet', component: VetFormComponent},
   {path: 'owners/:id', component: OwnerDetailComponent},
   {path: 'owners/:id/addpet', component: PetFormComponent},
+  {path: 'pets/:id', component: PetDetailComponent},
+  {path: 'pets/:id/addvisit', component: VisitFormComponent},
 ];
 
 @NgModule({
