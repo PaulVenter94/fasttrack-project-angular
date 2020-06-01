@@ -1,4 +1,5 @@
 import {Pet} from './pet';
+import {Time} from '@angular/common';
 
 
 export class Visit {

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Pet} from '../pet';
 import {OwnerService} from '../owner.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-pet-form',
@@ -9,6 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./pet-form.component.css']
 })
 export class PetFormComponent implements OnInit {
+  petForm: FormGroup;
   pet: Pet;
 
   constructor(
@@ -20,6 +22,7 @@ export class PetFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.pet = new Pet();
+    this.petForm = new FormGroup({name: new FormControl(this.pet.name, [Validators.required])});
   }
 
   onSubmit() {

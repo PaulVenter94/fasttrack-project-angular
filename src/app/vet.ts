@@ -2,6 +2,6 @@ export class Vet {
   id: string;
   firstName: string;
   lastName: string;
-  age: string;
+  age: number;
   speciality: string;
 }

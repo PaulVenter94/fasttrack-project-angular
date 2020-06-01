@@ -29,4 +29,8 @@ export class OwnerService {
   public addPet(id: number, pet: Pet) {
     return this.http.post(`${this.ownerUrl}/${id}`, pet);
   }
+
+  public deleteOwner(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.ownerUrl}/${id}`);
+  }
 }

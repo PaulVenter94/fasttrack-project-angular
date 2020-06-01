@@ -1,23 +1,26 @@
-<div class="card my-5">
-  <div class="card-body">
-    <table class="table table-bordered table-striped">
-      <thead class="thead-dark">
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Pets</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let owner of owners">
-        <td><a routerLink="{{owner.id}}">{{ owner.id }}</a></td>
-        <td>{{ owner.firstName }}</td>
-        <td>{{ owner.lastName }}</td>
+<div class="card-body">
+  <table class="table table-bordered table-striped" style="background-color: white">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Pets</th>
+      <th scope="col">Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let owner of owners">
+      <td>{{ owner.id }}</td>
+      <td>{{ owner.firstName }} {{ owner.lastName }}</td>
+      <td>
         <span *ngFor="let pet of owner.pets ; let i = index">{{i + 1}}.{{pet.name}} </span>
-      </tr>
-      </tbody>
-    </table>
-    <a routerLink="/addowner" class="btn btn-info">Add Owner</a>
-  </div>
+      </td>
+      <td>
+        <a routerLink="{{owner.id}}" [title]="'Details'"><i class="fas fa-info-circle fa-2x"></i></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <a routerLink="/addowner" class="btn btn-info">Add Owner</a>
 </div>
+
