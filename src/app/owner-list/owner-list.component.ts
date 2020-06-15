@@ -19,6 +19,5 @@ export class OwnerListComponent implements OnInit {
 
   ngOnInit(): void {
     this.ownerService.findAll().subscribe(data => this.owners = data);
-
   }
 }

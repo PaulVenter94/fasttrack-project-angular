@@ -7,23 +7,26 @@
       <tr>
         <th scope="col">Id</th>
         <th scope="col">Pet Name</th>
-        <th scope="col">Pet Type</th>
         <th scope="col">Age</th>
+        <th scope="col">Actions</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let pet of owner.pets">
-        <td><a routerLink="/pets/{{pet.id}}">{{ pet.id }}</a></td>
+      <tr *ngFor="let pet of pets">
+        <td>{{ pet.id }}</td>
         <td>{{ pet.name }}</td>
-        <td>{{<!-- TODO pet type--> }}</td>
-        <td>{{ <!-- TODO pet age--> }}</td>
+        <td>{{pet.age}}</td>
+        <td>
+          <a routerLink="/pets/{{pet.id}}"><i class="fas fa-info-circle fa-2x"></i></a></td>
       </tr>
       </tbody>
     </table>
     <a routerLink="addpet" class="btn btn-info">Add Pet</a>
-    <button (click)="deleteOwner()" class="btn btn-info">Delete owner!<i class="fas fa-trash-alt"></i>
+    <button (click)="deleteOwner()" class="btn btn-danger">Delete owner <i class="fas fa-trash-alt"></i>
     </button>
+    <button (click)="editOwner()" class="btn btn-secondary">Edit owner</button>
   </div>
 </div>
+
 
 

@@ -1,11 +1,17 @@
-<div class="card-body">
-  <form (ngSubmit)="onSubmit()">
-    <label for="dateTime">Date</label>
-    <input type="datetime-local" [(ngModel)]="date"
-           class="form-control"
-           id="dateTime"
-           name="date"
-    >
-    <button class="btn btn-primary" type="submit">Submit</button>
-  </form>
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-3">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()">
+        <label for="dateTime">Date</label>
+        <input type="datetime-local"
+               [(ngModel)]="date"
+               class="form-control"
+               id="dateTime"
+               name="date"
+        >
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
 </div>

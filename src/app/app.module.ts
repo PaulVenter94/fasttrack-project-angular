@@ -21,6 +21,10 @@ import {MatDatepicker, MatDatepickerModule} from '@angular/material/datepicker';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {OwnerEditComponent} from './owner-edit/owner-edit.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatNativeDateModule} from '@angular/material/core';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -37,21 +41,26 @@ export function momentAdapterFactory() {
     PetFormComponent,
     PetDetailComponent,
     VisitFormComponent,
+    OwnerEditComponent,
   ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        AppRoutingModule,
-        HttpClientModule,
-        CalendarModule.forRoot({provide: DateAdapter, useFactory: momentAdapterFactory}),
-        BrowserAnimationsModule,
-        MatDatepickerModule,
-        MatIconModule,
-        MatFormFieldModule,
-        ReactiveFormsModule,
-    ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    CalendarModule.forRoot({provide: DateAdapter, useFactory: momentAdapterFactory}),
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatIconModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatNativeDateModule
+  ],
   providers: [OwnerService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [OwnerEditComponent, VetListComponent],
 })
 export class AppModule {
 }

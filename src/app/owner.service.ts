@@ -33,4 +33,15 @@ export class OwnerService {
   public deleteOwner(id: string): Observable<void> {
     return this.http.delete<void>(`${this.ownerUrl}/${id}`);
   }
+
+  public edit(id: string, owner: Owner): Observable<Owner> {
+    console.log(`${this.ownerUrl}/${id}`);
+    console.log(`${owner.lastName} ${owner.firstName}`);
+    console.log(`${owner.pets.forEach(pet => pet.name)} `);
+    return this.http.put<Owner>(`${this.ownerUrl}/${id}`, owner);
+  }
+
+  getPets(id: number): Observable<Pet[]> {
+    return this.http.get<Pet[]>(`${this.ownerUrl}/${id}/pets`);
+  }
 }

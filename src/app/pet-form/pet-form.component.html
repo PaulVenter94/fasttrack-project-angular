@@ -13,9 +13,20 @@
            class="alert alert-danger">
         Name is required!
       </div>
+      <label for="date">Date</label>
+      <input type="date"
+             [(ngModel)]="pet.birthDate"
+             class="form-control"
+             id="date"
+             name="date"
+             formControlName="date"
+      >
     </div>
     <button type="submit" [disabled]="petForm.invalid"
             class="btn btn-info">Submit!
     </button>
   </div>
 </form>
+<h1 class="display-3">{{this.pet.name}}</h1>
+<h1 class="display-3">{{this.pet.birthDate}}</h1>
+<h1 class="display-3">{{petForm.get('name').invalid}}</h1>
