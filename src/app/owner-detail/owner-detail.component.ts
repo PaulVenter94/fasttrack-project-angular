@@ -5,6 +5,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {OwnerEditComponent} from '../owner-edit/owner-edit.component';
 import {Pet} from '../pet';
+import {PetService} from '../pet.service';
+import {PetEditComponent} from '../pet-edit/pet-edit.component';
 
 @Component({
   selector: 'app-owner-detail',
@@ -19,6 +21,7 @@ export class OwnerDetailComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,
               private dialog: MatDialog,
+              private petService: PetService
   ) {
   }
 
@@ -48,5 +51,22 @@ export class OwnerDetailComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.data = this.owner;
     this.dialog.open(OwnerEditComponent, dialogConfig);
+  }
+
+  deletePet(id: string) {
+    this.petService.delete(id).subscribe(() => {
+      this.ngOnInit();
+      this.router.navigate([`/owners/${this.owner.id}`]);
+      window.alert('Pet deleted');
+    });
+  }
+
+  editPet(id: string) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = this.pets.find(p => p.id = id);
+    this.dialog.open(PetEditComponent, dialogConfig);
+    this.dialog.afterAllClosed.subscribe(() => this.ngOnInit());
   }
 }

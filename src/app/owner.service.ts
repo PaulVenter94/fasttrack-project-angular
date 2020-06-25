@@ -37,7 +37,6 @@ export class OwnerService {
   public edit(id: string, owner: Owner): Observable<Owner> {
     console.log(`${this.ownerUrl}/${id}`);
     console.log(`${owner.lastName} ${owner.firstName}`);
-    console.log(`${owner.pets.forEach(pet => pet.name)} `);
     return this.http.put<Owner>(`${this.ownerUrl}/${id}`, owner);
   }
 

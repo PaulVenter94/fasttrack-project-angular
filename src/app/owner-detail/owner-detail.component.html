@@ -17,7 +17,11 @@
         <td>{{ pet.name }}</td>
         <td>{{pet.age}}</td>
         <td>
-          <a routerLink="/pets/{{pet.id}}"><i class="fas fa-info-circle fa-2x"></i></a></td>
+          <a routerLink="/pets/{{pet.id}}"><i class="btn fas fa-info-circle fa-2x"
+                                              style="background-color: transparent"></i></a>
+          <i class="btn fa fa-trash fa-2x" style="background-color: transparent" (click)="deletePet(pet.id)"></i>
+          <i class="btn fa fa-edit fa-2x" style="background-color: transparent" (click)="editPet(pet.id)"></i>
+        </td>
       </tr>
       </tbody>
     </table>

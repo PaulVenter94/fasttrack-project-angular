@@ -1,0 +1,28 @@
+<form class="form-horizontal" [formGroup]="petForm" (ngSubmit)="onSubmit()">
+  <div class="container">
+    <h4 class="display-3">Add owner</h4>
+    <div class="form-group">
+      <label for="name">Pet name</label>
+      <input type="text" [(ngModel)]="pet.name"
+             class="form-control"
+             id="name"
+             placeholder="Enter pet name!"
+             formControlName="name">
+      <div [hidden]="(petForm.get('name').valid)"
+           class="alert alert-danger">Name is required!
+      </div>
+      <label for="date">Date</label>
+      <input type="date"
+             [(ngModel)]="pet.birthDate"
+             class="form-control"
+             id="date"
+             name="date"
+             formControlName="date"
+      >
+    </div>
+    <button [disabled]="petForm.invalid" type="submit" class="btn btn-info">Submit
+    </button>
+  </div>
+</form>
+
+

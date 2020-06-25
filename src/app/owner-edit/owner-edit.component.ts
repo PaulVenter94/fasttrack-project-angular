@@ -15,8 +15,6 @@ export class OwnerEditComponent implements OnInit {
   owner: Owner;
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
     private ownerService: OwnerService,
     private matDialogRef: MatDialogRef<OwnerEditComponent>,
     @Inject(MAT_DIALOG_DATA) newOwner: Owner,
