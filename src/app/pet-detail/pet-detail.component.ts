@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Pet} from '../pet';
 import {PetService} from '../pet.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {Visit} from '../visit';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import {VisitEditComponent} from '../visit-edit/visit-edit.component';
 
 @Component({
   selector: 'app-pet-detail',
@@ -15,7 +17,7 @@ export class PetDetailComponent implements OnInit {
 
   constructor(private petService: PetService,
               private route: ActivatedRoute,
-              private router: Router) {
+              private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -30,7 +32,13 @@ export class PetDetailComponent implements OnInit {
     });
   }
 
-  showPet() {
-    window.alert(this.pet.name + ' ' + this.pet.owner + this.pet.id);
+  editVisit(visitId: string, whatToEdit: string) {
+    const dialogConfig = new MatDialogConfig();
+    const id = +visitId;
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = false;
+    dialogConfig.data = {visitId: id, field: whatToEdit};
+    this.dialog.open(VisitEditComponent, dialogConfig);
+    this.dialog.afterAllClosed.subscribe(() => this.ngOnInit());
   }
 }

@@ -10,10 +10,12 @@ import {visit} from '@angular/compiler-cli/src/ngtsc/util/src/visitor';
 })
 export class PetService {
   private petUrl: string;
+  private visitUrl: string;
   private visits: Visit[];
 
   constructor(private http: HttpClient) {
     this.petUrl = 'http://localhost:8080/pets';
+    this.visitUrl = 'http://localhost:8080/visits';
   }
 
   getAll(): Observable<Pet[]> {
@@ -29,7 +31,7 @@ export class PetService {
   }
 
   getVisits(id: number): Observable<Visit[]> {
-    return this.http.get<Visit[]>(`${this.petUrl}/${id}/visits`);
+    return this.http.get<Visit[]>(`${this.visitUrl}?petId=${id}`);
   }
 
   delete(id: string): Observable<void> {

@@ -9,9 +9,11 @@ import {Pet} from './pet';
 })
 export class OwnerService {
   private ownerUrl: string;
+  private petUrl: string;
 
   constructor(private http: HttpClient) {
     this.ownerUrl = 'http://localhost:8080/owners';
+    this.petUrl = 'http://localhost:8080/pets';
   }
 
   public findAll(): Observable<Owner[]> {
@@ -41,6 +43,6 @@ export class OwnerService {
   }
 
   getPets(id: number): Observable<Pet[]> {
-    return this.http.get<Pet[]>(`${this.ownerUrl}/${id}/pets`);
+    return this.http.get<Pet[]>(`${this.petUrl}?ownerId=${id}`);
   }
 }

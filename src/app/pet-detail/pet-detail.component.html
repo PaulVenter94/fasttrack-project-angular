@@ -1,4 +1,8 @@
-<h2 class="card-title text-center py-3">{{pet.id}}.{{pet.name}}</h2>
+<h2 class="display-2 text-center">
+  <a href="/owners/{{pet.owner.id}}">{{pet.owner.id}}
+    .{{pet.owner.firstName}} {{pet.owner.lastName}}</a>
+</h2>
+<h3 class="card-title text-center py-3">{{pet.id}}.{{pet.name}}</h3>
 <div class="card my-5">
   <div class="card-body">
     <table class="table table-bordered table-striped">
@@ -7,14 +11,31 @@
         <th scope="col">Id</th>
         <th scope="col">Visit Date</th>
         <th scope="col">Description</th>
-        <th scope="col">Intervention</th>
+        <th scope="col">Treatment</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let visit of visits">
         <td>{{ visit.id }}</td>
         <td>{{visit.dateTime | date:'medium'}}</td>
-        <td></td>
+        <td>
+          <div class="row">
+            <div class="col-sm-9"><p>{{visit.description}}</p></div>
+            <div class="col-sm-3"><span class="float-right"><i class="btn fa fa-edit fa-2x"
+                                                               style="background-color: transparent"
+                                                               (click)="editVisit(visit.id,'description')"></i></span>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="row">
+            <div class="col-sm-9"><p>{{visit.treatment}}</p></div>
+            <div class="col-sm-3"><span class="float-right"><i class="btn fa fa-edit fa-2x"
+                                                               style="background-color: transparent"
+                                                               (click)="editVisit(visit.id,'treatment')"></i></span>
+            </div>
+          </div>
+        </td>
       </tr>
       </tbody>
     </table>

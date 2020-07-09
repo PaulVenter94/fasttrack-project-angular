@@ -26,6 +26,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatNativeDateModule} from '@angular/material/core';
 import { PetEditComponent } from './pet-edit/pet-edit.component';
+import { VisitEditComponent } from './visit-edit/visit-edit.component';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -44,6 +45,7 @@ export function momentAdapterFactory() {
     VisitFormComponent,
     OwnerEditComponent,
     PetEditComponent,
+    VisitEditComponent,
   ],
   imports: [
     BrowserModule,

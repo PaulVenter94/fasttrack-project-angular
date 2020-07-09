@@ -6,4 +6,6 @@ export class Visit {
   id: string;
   dateTime: Date;
   pet: Pet;
+  description: string;
+  treatment: string;
 }
